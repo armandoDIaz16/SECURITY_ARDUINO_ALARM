@@ -6,7 +6,7 @@ SISTEMA DE ALARMA DE SEGURIDAD
 ## DESCRIPCIÓN
 
 
-Este es un sistema de alarma de seguridad, que funciona a base de tecnología electromagnetica, que nos brinda seguridad en el hogar, en la empresa o en cualquier habitación que deseemos resguardar, puede colocarse en puertas de cualquier tipo e incluso ventanas, solo se necesita instalar un solo controlador en un lugar y la seguridad puede ampliarse por todos los accesos del lugar.
+Este es un sistema de alarma de seguridad, que funciona a base de tecnología electromagnetica, que nos brinda seguridad en el hogar, en la empresa o en cualquier habitación que deseemos resguardar, puede colocarse en puertas de cualquier tipo e incluso ventanas, solo se necesita instalar un solo controlador  y la seguridad puede ampliarse por todos los accesos del lugar.
 
 > ## Diagrama de protoboard
 
@@ -36,12 +36,12 @@ Este es un sistema de alarma de seguridad, que funciona a base de tecnología el
 -LowPowerMaster
 
 > ### Diagramas 
-- Teclado matricial 
-![teclado_matricial_4x4_conexiones](https://user-images.githubusercontent.com/43178846/46113427-efb93800-c1b3-11e8-8c5d-08d20dafbcfb.png)
-- Arduino UNO Diagram 
-![arduino](https://user-images.githubusercontent.com/43178846/46113664-ee3c3f80-c1b4-11e8-9f07-9cddca570c8e.jpg)
- 
+- Teclado matricial
 
+![teclado_matricial_4x4_conexiones](https://user-images.githubusercontent.com/43178846/46113427-efb93800-c1b3-11e8-8c5d-08d20dafbcfb.png)
+- Arduino UNO Diagram
+ 
+![arduino](https://user-images.githubusercontent.com/43178846/46113664-ee3c3f80-c1b4-11e8-9f07-9cddca570c8e.jpg)
 PREGUNTAS
 =========
 
