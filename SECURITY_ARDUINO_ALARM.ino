@@ -72,12 +72,6 @@ void setup() {
   bajoConsumo = false;
   botonPress=false;
   intruso = false;
-  //VARIABLES DE PRUEBA*****************************************************
-  encender = false;
-  //LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);
-  //attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);
-  //attachInterrupt(digitalPinToInterrupt(redSwitch), activarBandera, RISING);
-  Serial.begin(9600);
 }
               
               void loop() { //LOOP***********************************************
@@ -85,84 +79,37 @@ void setup() {
                   puertaCerrada=true;
                   else
                   puertaCerrada=false;
-
                 if(puertaCerrada==false && alarmaON == false){
-                  detachInterrupt(digitalPinToInterrupt(redSwitch));
-                 //   intruso=false;
+                  detachInterrupt(digitalPinToInterrupt(redSwitch));                 
                     detachInterrupt(digitalPinToInterrupt(boton));
-                    Serial.println("la puerta esta abierta y la alarma desactivada");
-                    //delay(1000);
                     cont2=0;
                     notificacion=false;
                     botonPress=false;
-                    passwordUser="";                    
-                    
-                 //   tecladoON = false;                    
-//                  detachInterrupt(redSwitch);
+                    passwordUser="";  
                   }else if(puertaCerrada==true && alarmaON ==false){
                             detachInterrupt(digitalPinToInterrupt(redSwitch));
-                            //intruso=false;
-                            Serial.println("la puerta esta cerrada y la alarma desactivada");
-                            //delay(1000);
                             attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);                            
                             login();                            
-                        }else if(puertaCerrada==true && alarmaON ==true && intruso==false){
-                                  Serial.println("la puerta esta cerrada y la alarma activada");
-                                  
-                                  //delay(1000);                               
+                        }else if(puertaCerrada==true && alarmaON ==true && intruso==false){                           
                                   alarmaEncendida();
                                   attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);
-                                  attachInterrupt(digitalPinToInterrupt(redSwitch), activarBandera, RISING);                                  
-                                  //intruso=false;
+                                  attachInterrupt(digitalPinToInterrupt(redSwitch), activarBandera, RISING);       
                                   login2();
-                                //attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);
-                                //attachInterrupt(digitalPinToInterrupt(redSwitch), activarBandera, RISING);
-                               // login2();
                               }else if(intruso == true && alarmaON==true){
                                        detachInterrupt(digitalPinToInterrupt(redSwitch));          
-                                       attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);                                       
-                                       Serial.println("INTRUSO");
-                                       //delay(1000);                                                
+                                       attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);                             
                                        sirena();
                                        login3();
                                     }else {
                                       intruso=true;             
                                     }
                 
-                if (encender == true) {
-                  digitalWrite(ledRojo, HIGH);
-                  digitalWrite(ledVerde, HIGH);
-                  digitalWrite(bocina, HIGH);
-                } else if (passwordCorrect == true) {
-                  digitalWrite(ledRojo, LOW);
-                  digitalWrite(ledVerde, LOW);
-                  digitalWrite(bocina, LOW);
-                }
+                
               
                 if (counter != cont)
                 {
-                  counter = cont;
-                  Serial.println(counter);
-                  Serial.flush();
-                }
-              
-                if (tecladoON == true)
-                {
-                  callTeclado();
-              
-                  if (counter2 != cont2)
-                  {
-                    counter2 = cont2;
-                    Serial.println(counter2);
-                    Serial.flush();
-                  }
-                  if (cont2 == 4)
-                  {
-                    Serial.println(passwordUser);
-                    if (passwordUser == password)
-                      passwordCorrect = true;
-                  }
-                }
+                  counter = cont;                
+                }               
               }
               
 //METODDOS DE INTERRUPCIONES**********************************************************
@@ -174,17 +121,13 @@ void activarBandera() {
       intruso=true;
       }
      puertaCerrada=false;
-   // encender = true;
     timeCounter = millis();
-    //detachInterrupt(boton);
   }
 }
 void activarTeclado() {
   if (millis() > timeCounter + timeThreshold)
   {
      cont--;
-//    encender = false;
-//    tecladoON = true;
     botonPress=true;
     timeCounter = millis();
   }
@@ -197,7 +140,6 @@ void login(){
     callTeclado();
     debounceTeclado();
     verificarPassword();
-    
   }
 }
 void login2(){
@@ -206,7 +148,6 @@ void login2(){
     callTeclado();
     debounceTeclado();
     verificarPassword2();
-    
   }
 }
 void login3(){
@@ -215,13 +156,11 @@ void login3(){
     callTeclado();
     debounceTeclado();
     verificarPassword3();
-    
   }
 }
 
 void verificarPassword3(){
   if(cont2==4){
-      Serial.println(passwordUser);
       if(password==passwordUser){
           contrasenaExitosa();
           alarmaON=false;
@@ -235,8 +174,7 @@ void verificarPassword3(){
     }
 }
 void verificarPassword2(){
-  if(cont2==4){
-      Serial.println(passwordUser);
+  if(cont2==4){      
       if(password==passwordUser && puertaCerrada == true){
           contrasenaExitosa();
           alarmaON=false;
@@ -247,8 +185,7 @@ void verificarPassword2(){
 }
 
 void verificarPassword(){
-  if(cont2==4){
-      Serial.println(passwordUser);
+  if(cont2==4){      
       if(password==passwordUser && puertaCerrada == true){
           contrasenaExitosa();
           alarmaON=true;
@@ -262,8 +199,6 @@ void debounceTeclado(){
   if (counter2 != cont2)
   {
     counter2 = cont2;
-    Serial.println(counter2);
-    Serial.flush();
   } 
 }
 
