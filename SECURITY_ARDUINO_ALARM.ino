@@ -42,6 +42,7 @@ long timeCounter2 = 0;
 int timeThreshold2 = 200;
 int counter2 = 0;
 boolean intruso;
+boolean notificacion = false;
 void setup() {
   //CONFIGURACION DEL TECLADO************************************************
   //declaraciones del teclado
@@ -86,14 +87,18 @@ void setup() {
                   puertaCerrada=false;
 
                 if(puertaCerrada==false && alarmaON == false){
+                    detachInterrupt(digitalPinToInterrupt(boton));
                     Serial.println("la puerta esta abierta y la alarma desactivada");
                     delay(1000);
-//                  tecladoON = false;
-//                  detachInterrupt(boton);
+                 //   tecladoON = false;                    
 //                  detachInterrupt(redSwitch);
                   }else if(puertaCerrada==true && alarmaON ==false){
-                            Serial.println("la puerta esta cerrada y la alarma desactivada");
-                            delay(1000);
+                           // Serial.println("la puerta esta cerrada y la alarma desactivada");
+                            //delay(1000);
+                            attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);
+                            detachInterrupt(digitalPinToInterrupt(redSwitch));
+                            login();
+                            //botonPress = false;
                         }else if(puertaCerrada==true && alarmaON ==true){
                                 //attachInterrupt(digitalPinToInterrupt(boton), activarTeclado, FALLING);
                                 //attachInterrupt(digitalPinToInterrupt(redSwitch), activarBandera, RISING);
@@ -119,7 +124,7 @@ void setup() {
                 if (counter != cont)
                 {
                   counter = cont;
-                  // Serial.println(counter);
+                  Serial.println(counter);
                   Serial.flush();
                 }
               
@@ -155,13 +160,45 @@ void activarBandera() {
 void activarTeclado() {
   if (millis() > timeCounter + timeThreshold)
   {
-    cont--;
-    encender = false;
-    tecladoON = true;
+     cont--;
+//    encender = false;
+//    tecladoON = true;
+    botonPress=true;
     timeCounter = millis();
   }
-  //METODOS DE SISTEMA************************************************************************
+  
 }
+//METODOS DE SISTEMA************************************************************************
+void login(){
+  if(botonPress == true){
+    notificarKeyboardON();
+    callTeclado();
+    debounceTeclado();
+    verificarPassword();
+    
+  }
+}
+
+void verificarPassword(){
+  if(cont2==4){
+      Serial.println(passwordUser);
+      if(password==passwordUser){
+          contrasenaExitosa();
+      }else{
+          contrasenaErronea();
+      }
+    }
+}
+void debounceTeclado(){
+  if (counter2 != cont2)
+  {
+    counter2 = cont2;
+    Serial.println(counter2);
+    Serial.flush();
+  } 
+}
+
+
 void callTeclado() {
   teclado(renglon1, valores, valor);
   teclado(renglon2, valores2, valor);
@@ -184,17 +221,62 @@ void teclado(int renglon, char valores [], char valor) {
     valor = valores[3];
 
   digitalWrite(renglon, HIGH);
+  
   if (millis() > timeCounter2 + timeThreshold2)
   {
     if (valor != 0) {
-      //  delay(500);
-      //    teclaledRojo();
       passwordUser += valor;
       valor = 0;
       cont2++;
+      tecla();
       timeCounter2 = millis();
-      //delay(500);
-
     }
   }
+}
+//METODOS DE NOTIFICACION************************************************
+void contrasenaExitosa(){
+    for(int i =0;i<=3;i++){
+      digitalWrite(ledVerde,HIGH);
+      digitalWrite(bocina,HIGH);
+      delay(200);
+      digitalWrite(ledVerde,LOW);
+      digitalWrite(bocina,LOW);
+      delay(200);
+    }
+    cont2=0;
+    notificacion=false;
+    botonPress=false;
+    passwordUser="";
+}
+void contrasenaErronea(){  
+      digitalWrite(ledRojo,HIGH);
+      digitalWrite(bocina,HIGH);
+      delay(1000); 
+      digitalWrite(ledRojo,LOW);
+      digitalWrite(bocina,LOW);    
+    cont2=0;
+    notificacion=false;
+    botonPress=false;
+    passwordUser="";
+}
+
+void notificarKeyboardON(){
+  if(notificacion==false){
+    digitalWrite(ledVerde,HIGH);
+    digitalWrite(bocina,HIGH);
+    delay(500);
+    digitalWrite(ledVerde,LOW);
+    digitalWrite(bocina,LOW);
+    notificacion=true;
+  }
+}
+
+void tecla(){
+  digitalWrite(ledVerde,HIGH);
+  digitalWrite(bocina,HIGH);
+  delay(100);
+  digitalWrite(ledVerde,LOW);
+  digitalWrite(bocina,LOW);
+  
+  
 }
