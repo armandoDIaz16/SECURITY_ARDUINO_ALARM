@@ -32,20 +32,26 @@ Este es un sistema de alarma de seguridad, que funciona a base de tecnología el
 
 
 ## INSTALACIÓN E INSTRUCCIONES DE USO
-		1- Para que se pueda activar la alarma debe estar la puerta cerrada
-si la puerta no está cerrada el sistema tendra entendido que no desea activar la alarma.
-		2- Si usted cierra la puerta y presiona el botón significa que desea 
-activar la alarma, si no presiona el botón aunque este cerrada la puerta el sistema 
-entenderá que no desea activar la alarma solo quiere tener la puerta cerrada.
-		3- Si cierra la puerta y presiona la alarma el sistema activará el teclado
-para que usted teclee su password pero si falla le notificará de su error con un led rojo y tendrá que presionar un vez más el 
-botón para vovlerlo a intentar, si acierta le notificará con un led verde y se activará la
-alarma.
-		4- Si la alarma esta activada pero nunca es interrumpido su hogar el sistema
-hará el mismo proceso para desactivar la seguridad, activará el teclado con el botón para que usted ingrese su password si falla lo pedirá de nuevo.
-		5- si su hogar es interrumpido el sistema activará una sirena con la bocina y 
-los leds está solo se podrá desactivar presionando el botón e ingresando el password correcto
-de lo contrario seguirá sonando.
+
+    1- Para que se pueda activar la alarma debe estar la puerta cerrada si la puertano está cerrada
+    el sistema tendra entendido que no desea activar la alarma.
+    
+    2- Si usted cierra la puerta y presiona el botón significa que desea activar la alarma, si no
+    presiona el botón aunque este cerrada la puerta el sistema entenderá que no desea activar la 
+    alarma solo quiere tener la puerta cerrada.
+    
+	3- Si cierra la puerta y presiona la alarma el sistema activará el teclado para que usted teclee 
+    su password pero si falla le notificará de su error con un led rojo y tendrá que presionar un 
+    vez más el botón para vovlerlo a intentar, si acierta le notificará con un led verde y se 
+    activará la alarma.
+    
+	4- Si la alarma esta activada pero nunca es interrumpido su hogar el sistema hará el mismo 
+    proceso para desactivar la seguridad, activará el teclado con el botón para que usted ingrese 
+    su password si falla lo pedirá de nuevo.
+    
+	5- si su hogar es interrumpido el sistema activará una sirena con la bocina y los leds 
+    está solo se podrá desactivar presionando el botón e ingresando el password correcto de lo contrario 
+    seguirá sonando.
 
 
 ## EXTRAS 
