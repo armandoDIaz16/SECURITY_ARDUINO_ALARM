@@ -7,6 +7,9 @@ SISTEMA DE ALARMA DE SEGURIDAD
 ![real](https://user-images.githubusercontent.com/43178846/46343686-34096580-c604-11e8-9c25-71cdadaa2e1c.jpeg)
 
 ## DESCRIPCIÓN
+==============================
+
+==============================
 
 
 Este es un sistema de alarma de seguridad, que funciona a base de tecnología electromagnetica, que nos brinda seguridad en el hogar, en la empresa o en cualquier habitación que deseemos resguardar, puede colocarse en puertas de cualquier tipo e incluso ventanas, solo se necesita instalar un solo controlador  y la seguridad puede ampliarse por todos los accesos del lugar.
