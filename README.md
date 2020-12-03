@@ -1,5 +1,6 @@
 SISTEMA DE ALARMA DE SEGURIDAD 
 ==============================
+                
 
 ### IMAGEN REAL
 ![real2](https://user-images.githubusercontent.com/43178846/46343675-2ce25780-c604-11e8-8f48-04687a7829ca.jpeg)
@@ -7,10 +8,6 @@ SISTEMA DE ALARMA DE SEGURIDAD
 ![real](https://user-images.githubusercontent.com/43178846/46343686-34096580-c604-11e8-9c25-71cdadaa2e1c.jpeg)
 
 ## DESCRIPCIÓN
-==============================
-
-==============================
-
 
 Este es un sistema de alarma de seguridad, que funciona a base de tecnología electromagnetica, que nos brinda seguridad en el hogar, en la empresa o en cualquier habitación que deseemos resguardar, puede colocarse en puertas de cualquier tipo e incluso ventanas, solo se necesita instalar un solo controlador  y la seguridad puede ampliarse por todos los accesos del lugar.
 
@@ -68,14 +65,14 @@ Este es un sistema de alarma de seguridad, que funciona a base de tecnología el
 - Arduino UNO Diagram
  
 ![arduino](https://user-images.githubusercontent.com/43178846/46113664-ee3c3f80-c1b4-11e8-9f07-9cddca570c8e.jpg)
+
 PREGUNTAS
-=========
+==============================
 
 Enviame un correo [15240501@itleon.edu.mx]
 
 ## LICENCIA 
-=========
-## LICENCI2
+
 
 		Copyright (c) <2018> <José Armando Diaz Anguiano>.
 
