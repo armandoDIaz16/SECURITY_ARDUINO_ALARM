@@ -74,6 +74,9 @@ PREGUNTAS
 Enviame un correo [15240501@itleon.edu.mx]
 
 ## LICENCIA 
+=========
+## LICENCI2
+
 		Copyright (c) <2018> <José Armando Diaz Anguiano>.
 
 		Redistribution and use in source and binary forms, with or without
